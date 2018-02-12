@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @night_shift.date %>
+</p>
+
+<p>
+  <strong>Claim:</strong>
+  <%= @night_shift.claim %>
+</p>
+
+<p>
+  <strong>Basicpay:</strong>
+  <%= @night_shift.basicpay %>
+</p>
+
+<%= link_to 'Edit', edit_night_shift_path(@night_shift) %> |
+<%= link_to 'Back', night_shifts_path %>

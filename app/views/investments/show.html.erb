@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @investment.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @investment.amount %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @investment.month %>
+</p>
+
+<p>
+  <strong>Basicpay:</strong>
+  <%= @investment.basicpay %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @investment.total %>
+</p>
+
+<%= link_to 'Edit', edit_investment_path(@investment) %> |
+<%= link_to 'Back', investments_path %>

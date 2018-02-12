@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @weekend.date %>
+</p>
+
+<p>
+  <strong>Claim:</strong>
+  <%= @weekend.claim %>
+</p>
+
+<%= link_to 'Edit', edit_weekend_path(@weekend) %> |
+<%= link_to 'Back', weekends_path %>

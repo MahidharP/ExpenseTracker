@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Basicpays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Salary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @basicpays.each do |basicpay| %>
+      <tr>
+        <td><%= basicpay.salary %></td>
+        <td><%= link_to 'Show', basicpay %></td>
+        <td><%= link_to 'Edit', edit_basicpay_path(basicpay) %></td>
+        <td><%= link_to 'Destroy', basicpay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Basicpay', new_basicpay_path %>

@@ -1,0 +1,21 @@
+<%= form_for(@basicpay) do |f| %>
+  <% if @basicpay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@basicpay.errors.count, "error") %> prohibited this basicpay from being saved:</h2>
+
+      <ul>
+      <% @basicpay.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :salary %><br>
+    <%= f.text_field :salary %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

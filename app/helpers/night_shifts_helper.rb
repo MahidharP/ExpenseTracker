@@ -1,0 +1,2 @@
+module NightShiftsHelper
+end
