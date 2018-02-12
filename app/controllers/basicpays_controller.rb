@@ -1,5 +1,6 @@
 class BasicpaysController < ApplicationController
   before_action :set_basicpay, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /basicpays
   # GET /basicpays.json
