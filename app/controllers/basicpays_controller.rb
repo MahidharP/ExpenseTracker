@@ -6,6 +6,7 @@ class BasicpaysController < ApplicationController
   # GET /basicpays.json
   def index
     @basicpays = Basicpay.all
+      @basicpay = Basicpay.new
   end
 
   # GET /basicpays/1
@@ -29,11 +30,13 @@ class BasicpaysController < ApplicationController
 
     respond_to do |format|
       if @basicpay.save
-        format.html { redirect_to @basicpay, notice: 'Basicpay was successfully created.' }
+        format.html { redirect_to basicpays_path, notice: 'Basicpay was successfully created.' }
         format.json { render :show, status: :created, location: @basicpay }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @basicpay.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

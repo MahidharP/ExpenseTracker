@@ -5,6 +5,7 @@ class WeekendsController < ApplicationController
   # GET /weekends.json
   def index
     @weekends = Weekend.all
+       @weekend = Weekend.new
   end
 
   # GET /weekends/1
@@ -28,11 +29,13 @@ class WeekendsController < ApplicationController
 
     respond_to do |format|
       if @weekend.save
-        format.html { redirect_to @weekend, notice: 'Weekend was successfully created.' }
+        format.html { redirect_to weekends_path, notice: 'Weekend was successfully created.' }
         format.json { render :show, status: :created, location: @weekend }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @weekend.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

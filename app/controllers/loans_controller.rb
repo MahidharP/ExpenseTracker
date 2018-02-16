@@ -5,6 +5,7 @@ class LoansController < ApplicationController
   # GET /loans.json
   def index
     @loans = Loan.all
+    @loan = Loan.new
   end
 
   # GET /loans/1
@@ -28,11 +29,13 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
+        format.html { redirect_to loans_path, notice: 'Loan was successfully created.' }
         format.json { render :show, status: :created, location: @loan }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @loan.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

@@ -1,15 +1,5 @@
-<%= form_for(@night_shift) do |f| %>
-  <% if @night_shift.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@night_shift.errors.count, "error") %> prohibited this night_shift from being saved:</h2>
-
-      <ul>
-      <% @night_shift.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@night_shift,remote: true) do |f| %>
+  
 
   <div class="field">
     <%= f.label :date %><br>
@@ -30,16 +20,5 @@
 <% end %>
 
 
- <script>
-                $(document).ready(function() {
-                    // create Calendar from div HTML element
-                    $("#date").kendoCalendar({
-                        selectable: "multiple",
-                        weekNumber: true,     
-                    });
-                });
-
-   var app = angular.module('myApp', ['multipleDatePicker']);
-  <multiple-date-picker></multiple-date-picker>        
-    </script>
+ 
 

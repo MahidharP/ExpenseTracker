@@ -5,6 +5,8 @@ class InvestmentsController < ApplicationController
   # GET /investments.json
   def index
     @investments = Investment.all
+    
+    @investment = Investment.new
   end
 
   # GET /investments/1
@@ -28,11 +30,13 @@ class InvestmentsController < ApplicationController
 
     respond_to do |format|
       if @investment.save
-        format.html { redirect_to @investment, notice: 'Investment was successfully created.' }
+        format.html { redirect_to investments_path, notice: 'Investment was successfully created.' }
         format.json { render :show, status: :created, location: @investment }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @investment.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

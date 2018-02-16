@@ -1,37 +1,38 @@
-<%= form_for(@investment) do |f| %>
-  <% if @investment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@investment.errors.count, "error") %> prohibited this investment from being saved:</h2>
+<%= form_for(@investment,remote: true) do |f| %>
+  
 
-      <ul>
-      <% @investment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class:"form-control" %>
+      <span id="nameError"></span>
   </div>
-  <div class="field">
+
+  <div class="form-group">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, class:"form-control" %>
+      <span id="amountError"></span>
   </div>
-  <div class="field">
+
+  <div class="form-group">
     <%= f.label :month %><br>
-    <%= f.number_field :month %>
+    <%= f.number_field :month, class:"form-control" %>
+      <span id="monthError"></span>
   </div>
-  <div class="field">
+
+  <div class="form-group">
     <%= f.label :basicpay_id %><br>
-    <%= f.text_field :basicpay_id %>
+    <%= f.text_field :basicpay_id, class:"form-control" %>
+      <span id="basicpay_idError"></span>
   </div>
-  <div class="field">
+
+  <div class="form-group">
     <%= f.label :total %><br>
-    <%= f.text_field :total %>
+    <%= f.text_field :total, class:"form-control" %>
+    <span id="totalError"></span>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

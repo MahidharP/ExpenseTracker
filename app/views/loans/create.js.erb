@@ -1,0 +1,10 @@
+<% if @loan.errors.any? %>
+$('#errorMsg').html("<%= escape_javascript render 'errors' %>");
+ $('#errorMsg').show();
+<%else %>
+
+$('#new_loan')[0].reset();
+$('#loanList').append("<%= escape_javascript render 'loan' %>");   
+$('#errorMsg').hide();   
+
+ <% end %>

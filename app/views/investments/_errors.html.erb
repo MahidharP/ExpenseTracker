@@ -1,0 +1,10 @@
+    <div class="aler alert-danger">
+      <!-- <h2><%#= pluralize(@investment.errors.count, "error") %> prohibited this investment from being saved:</h2> -->
+
+      <ul>
+      <% @investment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+ 

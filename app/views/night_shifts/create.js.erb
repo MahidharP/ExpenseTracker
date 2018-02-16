@@ -1,0 +1,9 @@
+<% if @night_shift.errors.any? %>
+  $('#errorMsg').html("<%= escape_javascript render 'errors' %>");
+ $('#errorMsg').show();
+<%else %>
+
+$('#new_loan')[0].reset();
+$('#nightshiftList').append("<%= escape_javascript render 'nightshift' %>");   
+$('#errorMsg').hide();   
+<% end %>

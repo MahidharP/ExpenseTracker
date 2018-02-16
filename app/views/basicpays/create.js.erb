@@ -1,0 +1,11 @@
+<% if @basicpay.errors.any? %>
+ $('#errorMsg').html("<%= escape_javascript render 'errors' %>");
+ $('#errorMsg').show();
+<%else %>
+
+$('#new_basicpay')[0].reset();
+$('#basicpayList').append("<%= escape_javascript render 'basicpay' %>");   
+$('#errorMsg').hide();
+
+
+ <% end %>

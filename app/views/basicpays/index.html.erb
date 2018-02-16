@@ -1,27 +1,105 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
+ -->
 
-<h1>Listing Basicpays</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Salary</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%#= link_to 'New Basicpay', new_basicpay_path %>
 
-  <tbody>
-    <% @basicpays.each do |basicpay| %>
-      <tr>
-        <td><%= basicpay.salary %></td>
-        <td><%= link_to 'Show', basicpay %></td>
-        <td><%= link_to 'Edit', edit_basicpay_path(basicpay) %></td>
-        <td><%= link_to 'Destroy', basicpay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+   /* .sidenav {
+      background-color: white;
+      height: 100%;
+    }*/
+    
+    /* Set black background color, white text and some padding */
+    /*footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }*/
+    footer {
+    padding: 1em;
+    color: black;
+    background-color: skyblue;
+    clear: left;
+    text-align: center;
+    }
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
 
-<br>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 ">
+      
+    </div>
 
-<%= link_to 'New Basicpay', new_basicpay_path %>
+    <div class="col-sm-9">
+        <div class="col-md-8">
+      
+         <div class="page-header">
+        <h2>Listing Basicpays</h2>
+      </div>
+       
+        <table class="table table-bordered" id="basicpayList">
+          <thead>
+            <tr>
+              <th>Salary</th>
+              <th colspan="3">   Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @basicpays.each do |basicpay| %>
+              <tr>
+                <td><%= basicpay.salary %></td>
+                <td><%= link_to 'Show', basicpay %></td>
+                <td><%= link_to 'Edit', edit_basicpay_path(basicpay) %></td>
+                <td><%= link_to 'Destroy', basicpay, method: :delete, data: { confirm: 'Are you sure?',remote: true } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+
+      </div>
+       <div class="col-md-4">
+      
+    
+        <div class="page-header">
+        <h2> ADDING BasicPay</h2>
+        </div>
+         <div id="errorMsg" ></div>
+          <%= render "form" %>
+       </div>    
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Expense Tracker</p>
+</footer>
+
+</body>
+</html>
+

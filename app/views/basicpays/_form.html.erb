@@ -1,21 +1,55 @@
-<%= form_for(@basicpay) do |f| %>
-  <% if @basicpay.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@basicpay.errors.count, "error") %> prohibited this basicpay from being saved:</h2>
+<%= form_for(@basicpay,remote: true) do |f| %>
+  
+  <div class="form-group">
 
-      <ul>
-      <% @basicpay.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
     <%= f.label :salary %><br>
-    <%= f.text_field :salary %>
+    <%= f.text_field :salary , class:"form-control"%>
+    <span id="salaryError"></span>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+
+   
+ 
+ var salaryHandle = document.getElementById('basicpay_location');
+  
+
+  var salaryErrorHandle = document.getElementById('salaryError');
+  
+  
+    
+    validate = {
+         "salary": false
+          }
+
+     function validatesalary(){
+        if(salaryHandle.value == "") {
+        salaryErrorHandle.innerHTML = "Can't be blank";
+          validate.salary = false;
+       }else{
+          salaryErrorHandle.innerHTML = "";
+          validate.salary = true; 
+         } 
+     }   
+
+    
+    
+
+   var formHandle = document.getElementById('new_basicpay');
+   formHandle.addEventListener('submit', function(e){
+     validatesalary();
+    if(Object.values(validate).includes(false)){
+       e.preventDefault();
+       console.log("validate exist")
+     }
+
+     },false);
+
+   
+
+
+   </script>
+

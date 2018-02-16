@@ -1,0 +1,8 @@
+<tr>
+  <td><%= @night_shift.date %></td>
+  <td><%= @night_shift.claim %></td>
+  <td><%= @night_shift.basicpay %></td>
+  <td><%= link_to 'Show', @night_shift %></td>
+  <td><%= link_to 'Edit', edit_night_shift_path(@night_shift) %></td>
+  <td><%= link_to 'Destroy', @night_shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

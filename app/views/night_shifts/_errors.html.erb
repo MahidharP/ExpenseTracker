@@ -1,0 +1,9 @@
+<div id="aler alert-danger">
+      <!-- <h2><%#= pluralize(@night_shift.errors.count, "error") %> prohibited this night_shift from being saved:</h2> -->
+
+      <ul>
+      <% @night_shift.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>

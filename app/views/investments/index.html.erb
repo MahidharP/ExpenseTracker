@@ -1,36 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-8">
+     
+    <div class="page-header">
+        <h2>Listing Investments</h2>
+    </div>
+       <table class="table table-bordered" id="investmentList">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Month</th>
+              <th>Basicpay</th>
+              <th>Total</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-<h1>Listing Investments</h1>
+            <tbody>
+              <% @investments.each do |investment| %>
+                <tr>
+                  <td><%= investment.name %></td>
+                  <td><%= investment.amount %></td>
+                  <td><%= investment.month %></td>
+                  <td><%= investment.basicpay %></td>
+                  <td><%= investment.total %></td>
+                  <td><%= link_to 'Show', investment %></td>
+                  <td><%= link_to 'Edit', edit_investment_path(investment) %></td>
+                  <td><%= link_to 'Destroy', investment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Amount</th>
-      <th>Month</th>
-      <th>Basicpay</th>
-      <th>Total</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  </div>
 
-  <tbody>
-    <% @investments.each do |investment| %>
-      <tr>
-        <td><%= investment.name %></td>
-        <td><%= investment.amount %></td>
-        <td><%= investment.month %></td>
-        <td><%= investment.basicpay %></td>
-        <td><%= investment.total %></td>
-        <td><%= link_to 'Show', investment %></td>
-        <td><%= link_to 'Edit', edit_investment_path(investment) %></td>
-        <td><%= link_to 'Destroy', investment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="col-md-4">
+      <div class="page-header">
+        <h2>Adding Investments</h2>
+      </div>
+       <div id="errorMsg"></div>
+        <%= render "form" %>
+       
+   </div>
 
-<br>
+</div>
 
-<%= link_to 'New Investment', new_investment_path %>
+
+<%#= link_to 'New Investment', new_investment_path %>
 

@@ -5,6 +5,7 @@ class NightShiftsController < ApplicationController
   # GET /night_shifts.json
   def index
     @night_shifts = NightShift.all
+    @night_shift = NightShift.new
   end
 
   # GET /night_shifts/1
@@ -28,11 +29,13 @@ class NightShiftsController < ApplicationController
 
     respond_to do |format|
       if @night_shift.save
-        format.html { redirect_to @night_shift, notice: 'Night shift was successfully created.' }
+        format.html { redirect_to night_shifts_path, notice: 'Night shift was successfully created.' }
         format.json { render :show, status: :created, location: @night_shift }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @night_shift.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
