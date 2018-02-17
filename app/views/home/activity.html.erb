@@ -1,0 +1,107 @@
+    <%= select_month(Date.today) %>
+    <%= select_year(Date.today, :start_year => Date.today.year, :end_year => 8.years.from_now.year) %>
+
+    <p>Click on the buttons inside the tabbed menu:</p>
+    
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Dashboard')" id="defaultOpen">Dashboard</button>
+      <button class="tablinks" onclick="openCity(event, 'Night-shift')">Night-shift</button>
+      <button class="tablinks" onclick="openCity(event, 'Loans')">Loans</button>
+      <button class="tablinks" onclick="openCity(event, 'Weekend-shift')">Weekend-shift</button>
+      <button class="tablinks" onclick="openCity(event, 'Investment')">Investment</button>
+    </div>
+    
+    <div id="Dashboard" class="tabcontent">
+      <h3>Dashboard</h3>
+      <p>Dashboard is the capital city of England.</p>
+    </div>
+    
+    <div id="Night-shift" class="tabcontent">
+      <h3>Night-shift</h3>
+      
+      <%= form_for(@night_shift,remote: true) do |f| %>
+  
+
+            <div class="field">
+                <%= f.label :date %><br>
+                <%= f.text_field :date %>
+
+            </div>
+            <div class="field">
+                <%= f.label :claim %><br>
+                <%= f.text_field :claim %>
+            </div>
+            <div class="field">
+                <%= f.label :basicpay_id %><br>
+                <%= f.text_field :basicpay_id %>
+            </div>
+            <div class="actions">
+                <%= f.submit %>
+            </div>
+            <% end %>
+    </div>
+    
+    <div id="Loans" class="tabcontent">
+      <h3>Loans</h3>
+      <%= form_for(@loan,remote: true) do |f| %>
+  
+
+    <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </div>
+    <div class="field">
+        <%= f.label :bill %><br>
+        <%= f.text_field :bill %>
+    </div>
+    <div class="field">
+        <%= f.label :month %><br>
+        <%= f.number_field :month %>
+    </div>
+    <div class="field">
+        <%= f.label :basicpay_id %><br>
+        <%= f.text_field :basicpay_id %>
+    </div>
+    <div class="field">
+        <%= f.label :balance %><br>
+        <%= f.text_field :balance %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+    <% end %>
+
+    </div>
+
+    <div id="Investment" class="tabcontent">
+      <h3>Investment</h3>
+      <p>Tokyo is the capital of Investment.</p>
+    </div>
+
+    <div id="Weekend-shift" class="tabcontent">
+        <h3>Weekend-shift</h3>
+        <p>Tokyo is the capital of Investment.</p>
+    </div>
+    
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+
+
+
